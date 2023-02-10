@@ -23,9 +23,6 @@ builder.Services.AddDbContext<InventoryManagerContext>(options =>
 
 builder.Services.AddMvc(options =>
 {
-    options.Filters.Add<ValidationFilter>();
-});
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
