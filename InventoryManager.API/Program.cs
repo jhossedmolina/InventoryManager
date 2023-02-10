@@ -1,6 +1,6 @@
+using FluentValidation.AspNetCore;
 using InventoryManager.Core.Interfaces;
 using InventoryManager.Infrastructure.Data;
-using InventoryManager.Infrastructure.Filters;
 using InventoryManager.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +11,10 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddFluentValidation(options =>
+{
+    options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+});
 
 //
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
@@ -21,8 +24,8 @@ builder.Services.AddDbContext<InventoryManagerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("InventoryManager"))
 );
 
-builder.Services.AddMvc(options =>
-{
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
