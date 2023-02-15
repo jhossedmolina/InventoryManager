@@ -49,6 +49,7 @@ namespace InventoryManager.API.Controllers
         public async Task<IActionResult> UpdateProduct(int id, ProductDto productDto)
         {
             var product = _mapper.Map<Product>(productDto);
+            product.Id = id;
 
             await _productRepository.UpdateProduct(product);
             return Ok(product);
