@@ -6,6 +6,18 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: myAllowSpecificOrigins, policy =>
+    {
+
+    });
+});
+
+
 //
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

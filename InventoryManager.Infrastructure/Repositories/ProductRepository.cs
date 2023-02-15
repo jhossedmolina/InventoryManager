@@ -32,5 +32,26 @@ namespace InventoryManager.Infrastructure.Repositories
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<bool> PutProduct(Product product)
+        {
+            var currentPost = await GetProduct(product.Id);
+            currentPost.ProductStocks = product.ProductStocks;
+            currentPost.IdProductCategory = product.IdProductCategory;
+            currentPost.Description = product.Description;
+            currentPost.Name = product.Name;
+
+            int rows = await _context.SaveChangesAsync();
+            return rows > 0;
+        }
+
+        public async Task<bool> DeleteProduct(int id)
+        {
+            var currentProduct = await GetProduct(id);
+            _context.Products.Remove(currentProduct);
+
+            int rows = await _context.SaveChangesAsync();
+            return rows > 0;
+        }
     }
 }

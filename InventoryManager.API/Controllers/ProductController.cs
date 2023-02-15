@@ -44,5 +44,21 @@ namespace InventoryManager.API.Controllers
             await _productRepository.PostProduct(product);
             return Ok(product);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateProduct(int id, ProductDto productDto)
+        {
+            var product = _mapper.Map<Product>(productDto);
+
+            await _productRepository.UpdateProduct(product);
+            return Ok(product);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var result = await _productRepository.DeleteProduct(id);
+            return Ok(result);
+        }
     }
 }
