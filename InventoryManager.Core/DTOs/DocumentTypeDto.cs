@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Core.DTOs
 {
-    public class ProductDto
+    public class DocumentTypeDto
     {
         public int Id { get; set; }
+        public string Code { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public int IdProductCategory { get; set; }
     }
 }

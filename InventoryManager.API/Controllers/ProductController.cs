@@ -2,7 +2,6 @@
 using InventoryManager.Core.DTOs;
 using InventoryManager.Core.Entities;
 using InventoryManager.Core.Interfaces;
-using InventoryManager.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventoryManager.API.Controllers
@@ -51,7 +50,7 @@ namespace InventoryManager.API.Controllers
             var product = _mapper.Map<Product>(productDto);
             product.Id = id;
 
-            await _productRepository.UpdateProduct(product);
+            await _productRepository.PutProduct(product);
             return Ok(product);
         }
 

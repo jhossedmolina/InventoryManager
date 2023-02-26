@@ -30,6 +30,7 @@ builder.Services.AddControllers().AddFluentValidation(options =>
 
 //
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<IDocumentTypeRepository, DocumentTypeRepository>();
 
 //
 builder.Services.AddDbContext<InventoryManagerContext>(options => 
