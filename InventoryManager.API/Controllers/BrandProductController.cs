@@ -2,9 +2,7 @@
 using InventoryManager.Core.DTOs;
 using InventoryManager.Core.Entities;
 using InventoryManager.Core.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.InteropServices;
 
 namespace InventoryManager.API.Controllers
 {

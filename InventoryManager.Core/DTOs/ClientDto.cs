@@ -1,12 +1,7 @@
-﻿namespace InventoryManager.Core.Entities
+﻿namespace InventoryManager.Core.DTOs
 {
-    public partial class Client
+    public class ClientDto
     {
-        public Client()
-        {
-            Orders = new HashSet<Order>();
-        }
-
         public int Id { get; set; }
         public int DocNumber { get; set; }
         public int IdDocumentType { get; set; }
@@ -15,9 +10,5 @@
         public string ContactNumber { get; set; } = null!;
         public string Address { get; set; } = null!;
         public int IdMunicipalityCountry { get; set; }
-
-        public virtual DocumentType IdDocumentTypeNavigation { get; set; } = null!;
-        public virtual MunicipalityCountry IdMunicipalityCountryNavigation { get; set; } = null!;
-        public virtual ICollection<Order> Orders { get; set; }
     }
 }

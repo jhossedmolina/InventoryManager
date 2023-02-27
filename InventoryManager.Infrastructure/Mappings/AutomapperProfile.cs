@@ -16,6 +16,9 @@ namespace InventoryManager.Infrastructure.Mappings
 
             CreateMap<BrandProduct, BrandProductDto>();
             CreateMap<BrandProductDto, BrandProduct>();
+
+            CreateMap<Client, ClientDto>();
+            CreateMap<ClientDto, Client>();
         }
     }
 }
