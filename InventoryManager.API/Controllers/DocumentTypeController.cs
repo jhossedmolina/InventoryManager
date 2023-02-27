@@ -39,7 +39,6 @@ namespace InventoryManager.API.Controllers
         public async Task<IActionResult> PostDocumentType(DocumentTypeDto documentTypeDto)
         {
             var documentType = _mapper.Map<DocumentType>(documentTypeDto);
-
             await _documentTypeRepository.PostDocumentType(documentType);
             return Ok(documentType);
         }
@@ -49,7 +48,6 @@ namespace InventoryManager.API.Controllers
         {
             var documentType = _mapper.Map<DocumentType>(documentTypeDto);
             documentType.Id = id;
-
             await _documentTypeRepository.PutDocumentTypes(documentType);
             return Ok(documentType);
         }

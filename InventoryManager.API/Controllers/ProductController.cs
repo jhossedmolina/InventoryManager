@@ -39,7 +39,6 @@ namespace InventoryManager.API.Controllers
         public async Task<IActionResult> PostProduct(ProductDto productDto)
         {
             var product = _mapper.Map<Product>(productDto);
-
             await _productRepository.PostProduct(product);
             return Ok(product);
         }
@@ -49,7 +48,6 @@ namespace InventoryManager.API.Controllers
         {
             var product = _mapper.Map<Product>(productDto);
             product.Id = id;
-
             await _productRepository.PutProduct(product);
             return Ok(product);
         }
