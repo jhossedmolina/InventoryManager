@@ -2,10 +2,12 @@
 using InventoryManager.Core.DTOs;
 using InventoryManager.Core.Entities;
 using InventoryManager.Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventoryManager.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class DocumentTypeController : ControllerBase
